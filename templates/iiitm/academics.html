@@ -1,0 +1,44 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}ACADEMICS | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+	<center><h3>Welcome <b>{{ info.name }}</b> to your Academics Profile</h3></center><br/><br/>
+
+
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-4 col-lg-4">
+<h2>Academics</h2>
+<br/>
+ <ul style="list-style-type:square">
+  <li><a href="">Results</a></li>
+  <li><a href="">Check Your Attendence</a></li>
+   <li><a href="">SORS</a></li>
+  <li><a href="{% url 'faculty_status' %}">Notification from Faculty</a></li>
+  <li><a href="">Semester Registration</a></li>
+</ul> 
+
+</div>
+<br/>
+<br/>
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-4 col-lg-4">
+<h4>Downloads: </h4>
+<ul style="list-style-type:square">
+<li><a href="">Lecture Schedule</a></li>
+<li><a href="">Exam Schedule</a></li>
+<li><a href="">Holidays/Events</a></li>
+
+</ul>
+
+</div>
+
+
+
+{% endblock %}

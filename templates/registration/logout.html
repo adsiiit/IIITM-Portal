@@ -1,0 +1,15 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}LOGOUT|IIITM{% endblock %}
+
+{% load i18n %}
+{% block bodyblock %}
+
+
+<p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+
+<h3><a href="{% url 'login' %}">{% trans 'Log in again' %}</a></h3>
+
+{% endblock %}

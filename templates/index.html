@@ -1,0 +1,202 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>IIITM-G</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static "bootstrapo/css/bootstrap.min.css" %}" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link href="{% static "csso/font-awesome.min.css" %}" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+        <link href="{% static "csso/animate.css" %}" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="{% static "csso/style.css" %}" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+
+        <!-- Template js -->
+        <script src="{% static "jso/jquery-2.1.1.min.js" %}"></script>
+        <script src="{% static "bootstrapo/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "jso/jquery.appear.js" %}"></script>
+        <script src="{% static "jso/contact_me.js" %}"></script>
+        <script src="{% static "jso/jqBootstrapValidation.js" %}"></script>
+        <script src="{% static "jso/modernizr.custom.js" %}"></script>
+        <script src="{% static "jso/script.js" %}"></script>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    
+    <body>
+        
+        <!-- Start Logo Section -->
+        <section id="logo-section" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo text-center">
+                            <h1>ABV-IIITM</h1>
+                            <span><h3>Institute Portal</h3></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Logo Section -->
+        
+        
+        <!-- Start Main Body Section -->
+        <div class="mainbody-section text-center">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-3">
+                        
+                        <div class="menu-item light-red">
+                            <a href="{% url 'about' %}" target="_blank">
+                                <i class="fa fa-user"></i>
+                                <p>About Us</p>
+                            </a>
+                        </div>
+
+                        
+                        
+                        <div class="menu-item green">
+                            <a href="{% url 'login' %}" target="_blank">
+                                <i class="fa fa-sign-in"></i>
+                                <p>SignIN/SignUP</p>
+                            </a>
+                        </div>
+                        
+                        
+                        <div class="menu-item blue">
+                            <a href="{% url 'accounts' %}" target="_blank">
+                                <i class="fa fa fa-credit-card"></i>
+                                <p>Accounts</p>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-6">
+                        
+                        <!-- Start Carousel Section -->
+                        <div class="home-slider">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="padding-bottom: 30px;">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="{% static "images/iiitm1.JPG" %}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <img src="{% static "images/iiitm2.jpg" %}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <img src="{% static "images/iiitm3.jpg" %}" class="img-responsive" alt="">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Start Carousel Section -->
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="menu-item color responsive">
+                                    <a href="{% url 'administration' %}" target="_blank">
+                                        <i class="fa fa-briefcase"></i>
+                                        <p>Administration</p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="menu-item light-orange responsive-2">
+                                    <a href="{% url 'activities' %}" target="_blank">
+                                        <i class="fa fa-users"></i>
+                                        <p>Activities</p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-3">
+                        
+                        <div class="menu-item light-red">
+                            <a href="{% url 'complaint' %}" target="_blank">
+                                <i class="fa fa-envelope-o"></i>
+                                <p>Complaint/ Suggestion</p>
+                            </a>
+                        </div>
+                        
+                        <div class="menu-item color">
+                            <a href="{% url 'academics' %}" target="_blank">
+                                <i class="fa fa-folder-open-o "></i>
+                                <p>Academics</p>
+                            </a>
+                        </div>
+                        
+                        <div class="menu-item blue">
+                            <a href="{% url 'library_status' %}" target="_blank">
+                                <i class="fa fa-book"></i>
+                                <p>Library</p>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Main Body Section -->
+        
+        <!-- Start Copyright Section -->
+        <div class="copyright text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>Design & Developed by <a href="https://www.facebook.com/Shahriyar.Ahmed.Sohel" target="_blank">#NECROS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Section -->
+        
+        
+       
+        
+    </body>
+    
+</html>

@@ -1,0 +1,101 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}PROFILE | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+	
+	{% if lib %}
+	<div class="row">
+	<div class="col-sm-2 col-lg-2"></div>
+	<div class="col-sm-8 col-lg-8">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  	<strong>Warning!</strong> Your Due date to return the Book is near or passed.. To Check your Issued Books Status: 
+	  	<a href="{% url 'issue_status' %}" class="alert-link">Click Here</a>
+	</div>
+	</div>
+	</div>
+
+	{%endif%}
+
+	<div class="row">
+	<center><h2>~Your Profile~</h2></center>
+	<center><h3>Welcome <b>{{ user.username }}</b> to the Institute Portal - IIITM</h3></center><br/><br/>
+	<div class="col-sm-1 col-lg-1"></div>
+	<div class="col-sm-3 col-lg-3">
+		<img src="/media/{{ info.picture }}" alt="Profile Pic" style="width:200px;height:160px;"/>
+		<br/>
+		<br/>
+		<a href="/registration/logout"><button type="button" class="btn btn-danger">Logout</button></a> &nbsp;
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="/registration/logout"><button type="button" class="btn btn-success">Edit Profile</button></a>
+
+		
+
+	</div>
+	<div class="col-sm-4 col-lg-4">
+	<p><b>Name:</b>  {{ info.name }}</p>
+	<p><b>Roll no.:</b>  {{ user.username }}</p>
+	<p><b>Gender:</b>  {{ info.gender }}</p>
+	<p><b>Age:</b>  {{ info.age }}</p>
+
+	</div>
+	<div class="col-sm-4 col-lg-4">
+		<p><b>Stream:</b>  {{ info.stream }}</p>
+		<p><b>Contact:</b>  {{ info.contact }}</p>
+		<p><b>Address:</b>  {{ info.address }}</p>
+		<a href="/registration/password/change"><button type="button" class="btn btn-info">Change Password</button></a>
+	</div>
+</div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+
+
+
+{% if form %}
+
+
+<div class="row">
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-4 col-lg-4">
+
+<h2>Your Current Status</h2>
+<br/><br/>
+<b> Subject: </b>{{objec.subject}}<br/><br/>
+<b>Status: </b>{{objec.status}}<br/><br/>
+<b>Message: </b>{{objec.message}}<br/><br/>
+<br/>
+
+</div>
+
+<div class="col-sm-4 col-lg-4">
+
+<center><h2>Change Status</h2></center>
+<br/><br/>
+<form method="post" action=""
+                enctype="multipart/form-data">
+{% csrf_token %}
+{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+
+
+{{form|crispy}}
+
+<input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Change Status" />
+
+</form>
+<br/>
+<br/>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+

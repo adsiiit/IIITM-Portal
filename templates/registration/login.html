@@ -1,0 +1,40 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}LOGIN|IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-4 col-lg-4">
+<h1>Login Here!!</h1>
+
+
+<form id="user_form" method="post" action=""
+                enctype="multipart/form-data">
+{% csrf_token %}
+{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+
+
+{{form|crispy}}
+
+
+<input class="btn btn-primary" type="submit" name="submit" value="Login" />
+
+</form>
+<p>Forgot your password? <a href="{% url 'password_reset' %}">Reset it!</a></p>
+
+<h3>Not a Registered User?  <a href="{% url 'register' %}">Click Here</a></h3>
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

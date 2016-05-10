@@ -1,0 +1,23 @@
+
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}COMPLAINT | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+<br/>
+<br/>
+<div class="row">
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-6 col-lg-6">
+
+<div class="alert alert-success" role="alert">Your Complaint id is: <b> {{ valueid }} </b>. Note it down for future reference.  <a href="{% url 'complaint' %}" class="alert-link"><button type="button" class="btn btn-default">Go back</button></a></div>
+
+
+</div>
+</div>
+
+{% endblock %}

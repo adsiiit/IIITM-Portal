@@ -1,0 +1,71 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}STATUS | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-4 col-lg-4">
+<h1>Faculty Status</h1>
+<br/>
+
+
+
+<form class="form-horizontal" action="" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="facid">Faculty Name:</label>
+	<select id="facid" name="facid" class="form-control">
+	{% for fac in obj %}
+	  <option value="{{fac.pk}}">{{ fac.name }}</option>
+	 {% endfor %}
+	</select>
+</div>
+
+
+
+  <div class="form-group">
+      <button type="submit" name="submit" class="btn btn-primary">Click Here</button>
+  </div>
+</form>
+
+<br/>
+
+</div>
+</div>
+
+
+<br/>
+<br/>
+<br/>
+
+<div class="row">
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-8 col-lg-8">
+
+{% if stat %}
+
+<div class="alert alert-primary" role="alert">
+
+<b>Name :</b> {{ stat.name }} <br/>
+<b>Subject/s :</b> {{ stat.subject }} <br/>
+<b>Status :</b> {{ stat.status }} <br/>
+<b>Message: </b>{{ stat.message }}<br/>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}STATUS | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-4 col-lg-4">
+<br/>
+<br/>
+ENTER YOUR COMPLAINT ID:
+<br/>
+<br/>
+<form action="" method="POST">
+{% csrf_token %}
+
+    {{form|crispy}}
+    <button class="btn btn-danger" type="submit">Submit</button>
+
+</form>
+</div>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+
+
+<div class="row">
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-8 col-lg-8">
+{% if status.solved %}
+<div class="alert alert-info" role="alert">Your Problem Status:  {{ status.solved }}</div>
+{% endif %}
+<br/>
+{% if status.comment %}
+<div class="alert alert-success" role="alert">Reply: <pre>{{status.comment}}</pre></div>
+{% endif %}
+</div>
+</div>
+
+
+{% endblock %}

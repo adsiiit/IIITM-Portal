@@ -1,0 +1,94 @@
+{% extends 'mybase.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}COMPLAINT | IIITM{% endblock %}
+
+
+{% block bodyblock %}
+
+
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-4 col-lg-4">
+<h1>Lodge Your Complaint</h1>
+<br/>
+
+<form id="complaints_form" method="post" action="/iiitm/complaint/" class="horizontal">
+{% csrf_token %}
+
+<br/>
+<div class="control-group">
+      <!-- Username -->
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="username" class="input-xlarge name form-control" value={{ user.username }} readonly>
+      </div>
+    </div>
+ <br/>
+    
+    <div class="control-group">
+      <div class="controls">
+        <select id="type_of_complaint" name="type_of_complaint" class="form-control">
+            <option value="AC">Academics</option>
+            <option value="AT">Accounts</option>
+            <option value="AD">Administration</option>
+            <option value="HO">Hostel</option>
+            <option value="HP">Hospital</option>
+            <option value="LI">Library</option>
+            <option value="MI">Missing</option>
+            <option value="OT">Others</option>
+        </select>
+      </div>
+    </div>
+<br/>
+     <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="complaint_subject" name="complaint_subject" placeholder="Complaint Subject" class="input-xlarge name form-control" >
+      </div>
+    </div>
+<br/>
+
+    <textarea id="complaint_desc" class='form-control' name="complaint_desc" placeholder="Complaint Description" rows="8" cols="30"></textarea>
+<br/>
+
+     <input class="btn btn-success" type="submit" name="submit" value="Submit Your Complaint" />
+<br/>
+</form>
+
+
+</div>
+
+<div class="col-sm-2 col-lg-2"></div>
+<div class="col-sm-4 col-lg-4">
+<br/>
+<br/>
+<h4>Quick Links</h4>
+<ul style="list-style-type:square">
+<li><a href="">Booking for Room in Visitor Hostel</a></li>
+<li><a href="">Leave Application</a></li>
+<li><a href="">Appointment Request</a></li>
+<li><a href="">Your Suggestion</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-1 col-lg-1"></div>
+<div class="col-sm-6 col-lg-6">
+<br/>
+<p>Know Your Complaint Status:  <a href="{% url 'complaint_status' %}"><button type="button" class="btn btn-default">COMPLAINT STATUS</button></a></p>
+
+</div>
+</div>
+
+{% endblock %}
